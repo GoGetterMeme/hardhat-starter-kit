@@ -14,6 +14,7 @@ require("./tasks/block-number")
 require("./tasks/random-number-consumer")
 require("./tasks/price-consumer")
 require("./tasks/api-consumer")
+require('hardhat-spdx-license-identifier');
 
 
 require('dotenv').config()
@@ -39,18 +40,18 @@ module.exports = {
         },
         kovan: {
             url: KOVAN_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            //     accounts: {
+            //     mnemonic: MNEMONIC,
+            // },
             saveDeployments: true,
         },
         rinkeby: {
             url: RINKEBY_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            // accounts: {
+            //     mnemonic: MNEMONIC,
+            // },
             saveDeployments: true,
         },
         ganache: {
@@ -60,6 +61,10 @@ module.exports = {
             }
         }
     },
+    spdxLicenseIdentifier: {
+        overwrite: false,
+        runOnCompile: true,
+      },
     etherscan: {
         // Your API key for Etherscan
         // Obtain one at https://etherscan.io/
@@ -73,6 +78,9 @@ module.exports = {
         feeCollector: {
             default: 1
         }
+    },
+    paths: {
+        sources: "contracts",
     },
     solidity: {
         compilers: [

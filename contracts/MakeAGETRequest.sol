@@ -1,10 +1,15 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.6;
+pragma solidity ^0.6.0;
 
 import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
 
+/**
+ * THIS IS AN EXAMPLE CONTRACT WHICH USES HARDCODED VALUES FOR CLARITY.
+ * PLEASE DO NOT USE THIS CODE IN PRODUCTION.
+ */
 contract APIConsumer is ChainlinkClient {
+    using Chainlink for Chainlink.Request;
   
     uint256 public volume;
     
@@ -18,18 +23,11 @@ contract APIConsumer is ChainlinkClient {
      * Job ID: 29fa9aa13bf1468788b7cc4a500a45b8
      * Fee: 0.1 LINK
      */
-    constructor(address _oracle, string memory _jobId, uint256 _fee, address _link) public {
-        if (_link == address(0)) {
-            setPublicChainlinkToken();
-        } else {
-            setChainlinkToken(_link);
-        }
-        // oracle = 0x2f90A6D021db21e1B2A077c5a37B3C7E75D15b7e;
-        // jobId = "29fa9aa13bf1468788b7cc4a500a45b8";
-        // fee = 0.1 * 10 ** 18; // 0.1 LINK
-        oracle = _oracle;
-        jobId = stringToBytes32(_jobId);
-        fee = _fee;
+    constructor() public {
+        setPublicChainlinkToken();
+        oracle = 0x2f90A6D021db21e1B2A077c5a37B3C7E75D15b7e;
+        jobId = "29fa9aa13bf1468788b7cc4a500a45b8";
+        fee = 0.1 * 10 ** 18; // (Varies by network and job)
     }
     
     /**
@@ -70,15 +68,6 @@ contract APIConsumer is ChainlinkClient {
     {
         volume = _volume;
     }
-
-    function stringToBytes32(string memory source) public pure returns (bytes32 result) {
-        bytes memory tempEmptyStringTest = bytes(source);
-        if (tempEmptyStringTest.length == 0) {
-            return 0x0;
-        }
-
-        assembly {
-            result := mload(add(source, 32))
-        }
-    }
+ 
+    // function withdrawLink() external {} - Implement a withdraw function to avoid locking your LINK in the contract
 }

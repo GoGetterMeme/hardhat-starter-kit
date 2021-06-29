@@ -17,6 +17,7 @@
     "ethers": "^5.0.24",
     "hardhat": "^2.0.6",
     "hardhat-deploy": "^0.7.0-beta.39",
+    "hardhat-spdx-license-identifier": "^2.0.3",
     "web3": "^1.2.9"
   },
   "dependencies": {

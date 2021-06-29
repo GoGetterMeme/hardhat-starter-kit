@@ -5534,6 +5534,11 @@ hardhat-deploy@^0.7.0-beta.39:
     murmur-128 "^0.2.1"
     qs "^6.9.4"
 
+hardhat-spdx-license-identifier@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/hardhat-spdx-license-identifier/-/hardhat-spdx-license-identifier-2.0.3.tgz#6dd89a7e036ede4f7e86fb349eb23daaaad6890f"
+  integrity sha512-G4u4I1md0tWaitX6Os7Nq9sYZ/CFdR+ibm7clCksGJ4yrtdHEZxgLjWpJ0WiALF9SoFKt03PwCe9lczDQ/5ADA==
+
 hardhat@^2.0.6:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/hardhat/-/hardhat-2.4.1.tgz#2cd1e86ee6ca3a6a473eeb0f55bd3124c8c59250"
